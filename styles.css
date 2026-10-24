@@ -1,140 +1,284 @@
-*{
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
-header {
-    background-image: url("img/code.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    border-collapse: collapse;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+html {
+    scroll-behavior: smooth;
 }
 
-/* .greeting, .skill {
-} */
-
-.greeting, .txt, .abtxt, a {
-    font-size: 20px;
-} 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #26352b;
+    background: #f5f8f5;
+}
 
 .secciones {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    min-height: 60px;
     display: flex;
-    height: 50px;
-    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    background: rgba(0, 0, 0, 0.85);
 }
 
 .navigation {
     display: flex;
-    flex-wrap: nowrap;
-    gap: 30px;
-    
-}
-
-li {
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 30px;
     list-style: none;
-    height: 50px;
-    display: flex;
-    align-items: center;
 }
 
-li:hover {
+.navigation a {
+    display: block;
+    padding: 18px 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
     background: green;
 }
 
-a {
-    text-decoration: none;
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px 24px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)),
+        url("img/code.png") center / cover no-repeat;
     color: white;
 }
 
-.about, .experience, .project {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    padding: 50px;
+.greeting,
+.txt,
+.abtxt {
+    font-size: 20px;
 }
 
-.card {
-    padding: 1%;
-    width: 40%;
-    height: 80px;
-    background: lightblue;
-    gap: 50px;
-    border-radius: 10px;
+.hero h1 {
+    margin: 12px 0;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.skill {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.about,
+.experience,
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 60px 8%;
+    scroll-margin-top: 20px;
+}
+
+.about h2,
+.experience h2,
+.project h2 {
+    font-size: 30px;
+}
+
+.abtxt {
+    line-height: 1.7;
 }
 
 .focus {
-    padding-top: 1%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: center;
+    gap: 20px;
+}
+
+.card {
+    flex: 1 1 250px;
+    min-height: 150px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    background: lightblue;
+    border-radius: 10px;
+}
+
+.card i {
+    color: #26352b;
 }
 
 .subfocus {
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
-.fstExp, .scndExp {
+.job {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
 }
 
-.icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.job:last-child {
+    border-bottom: none;
+}
+
+.job-icon {
+    box-sizing: border-box;
+    flex: 0 0 50px;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+
     background-color: lightcoral;
-}
-
-i {
+    border-radius: 50%;
     color: white;
+
+    font-size: 22px;
+    line-height: 1;
+    text-align: center;
 }
 
-.frstPrjt, .scndPrjt {
-    padding-top: 5vh;
-    width: 100%;
+.job-icon::before {
+    display: block;
+    line-height: 1;
+}
+
+.job-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.job-content h3 {
+    color: #26352b;
+}
+
+.date {
+    color: #526357;
+    font-weight: bold;
+}
+
+.explanation {
+    line-height: 1.6;
+}
+
+/* Proyectos */
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.project-card {
+    flex: 1 1 300px;
+    max-width: 500px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.project-card a {
+    display: block;
+    height: 100%;
+    color: #26352b;
+    text-decoration: none;
+}
+
+.project-card figure {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-img{
+.project-card img {
+    display: block;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
 }
 
-.projects{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.project-card figcaption {
+    padding: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-h3 {
-    color: black;
+.project-card a:hover img {
+    opacity: 0.7;
 }
 
-.first:hover, .second:hover {
-    background: rgba(0, 0, 0, 0.5);
-    h3 {
-        color: white;
+.project-card a:hover figcaption,
+.project-card a:focus-visible figcaption {
+    color: white;
+    background: #26352b;
+}
+
+/* Diseño adaptable */
+
+@media (max-width: 600px) {
+    .navigation {
+        justify-content: center;
+        gap: 0;
+        padding: 0 8px;
     }
-    transition: opacity 0.4s ease;
-}
 
-.first:hover img,
-.second:hover img {
-    opacity: 0.5;
-    transition: opacity 0.4s ease;
+    .navigation a {
+        padding: 14px 8px;
+        font-size: 14px;
+    }
+
+    .about,
+    .experience,
+    .project {
+        padding: 40px 20px;
+    }
+
+    .about h2,
+    .experience h2,
+    .project h2 {
+        font-size: 25px;
+    }
+
+    .job {
+        gap: 12px;
+    }
+
+    .projects {
+        flex-direction: column;
+    }
+
+    .project-card {
+        flex-basis: auto;
+        width: 100%;
+        max-width: none;
+    }
 }
