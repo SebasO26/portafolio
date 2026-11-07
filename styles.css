@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: #F8FAFC;
 }
 
 html {
@@ -12,18 +13,38 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: #26352b;
     background: #f5f8f5;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)),
+        url("img/background.jpeg") center / cover no-repeat;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+section {
+    background-color: transparent;
+    width: 90%;
+    flex: 1;
+    border-radius: 2rem;
+    border: 1px solid #263449;
 }
 
 .secciones {
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 10;
     width: 100%;
-    min-height: 60px;
+    min-height: 5rem;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.85);
+    background: linear-gradient(to bottom, #111827 10%, transparent 100%);
 }
 
 .navigation {
@@ -45,7 +66,7 @@ body {
 
 .navigation a:hover,
 .navigation a:focus-visible {
-    background: green;
+    background: #080D18;
 }
 
 .hero {
@@ -57,10 +78,11 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)),
-        url("img/code.png") center / cover no-repeat;
-    color: white;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('img/code.png') center / cover, no-repeat;
+    margin-bottom: 5rem;
+
+    mask-image: linear-gradient(to bottom, transparent 100%, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 60%, transparent 100%);
 }
 
 .greeting,
@@ -109,17 +131,17 @@ body {
 .card {
     flex: 1 1 250px;
     min-height: 150px;
-    padding: 25px;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
-    background: lightblue;
+    background: #17283A;
     border-radius: 10px;
 }
 
 .card i {
-    color: #26352b;
+    color: #38BDF8;
 }
 
 .subfocus {
@@ -139,22 +161,12 @@ body {
 }
 
 .job-icon {
-    box-sizing: border-box;
-    flex: 0 0 50px;
     width: 50px;
     height: 50px;
     padding: 0;
     margin: 0;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-self: center;
-    align-content: center;
-
-    background-color: lightcoral;
-    border-radius: 50%;
-    color: white;
+    color: #38BDF8;
 
     font-size: 22px;
     line-height: 1;
@@ -172,12 +184,7 @@ body {
     gap: 10px;
 }
 
-.job-content h3 {
-    color: #26352b;
-}
-
 .date {
-    color: #526357;
     font-weight: bold;
 }
 
@@ -185,21 +192,26 @@ body {
     line-height: 1.6;
 }
 
-/* Proyectos */
 
 .projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 45vh), 1fr));
+    gap: 2rem;
+    width: 100%;
+    min-width: 0;
+}
+
+#projects-title {
+    text-align: center;
 }
 
 .project-card {
+    min-width: 0;
+    width: 100%;
     flex: 1 1 300px;
-    max-width: 500px;
     overflow: hidden;
     border-radius: 10px;
-    background: white;
+    background: #17283A;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
 }
 
@@ -211,7 +223,8 @@ body {
 }
 
 .project-card figure {
-    height: 100%;
+    width: 100%;
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
@@ -219,6 +232,7 @@ body {
 .project-card img {
     display: block;
     width: 100%;
+    max-width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
     transition: opacity 0.3s ease;
@@ -239,7 +253,7 @@ body {
 .project-card a:hover figcaption,
 .project-card a:focus-visible figcaption {
     color: white;
-    background: #26352b;
+    background: #111827;
 }
 
 /* Diseño adaptable */
